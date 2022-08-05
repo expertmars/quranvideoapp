@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:quranvideo/widgets/audio_player.dart';
+import 'package:provider/provider.dart';
+import 'package:quranvideo/provider/utils.dart';
+import 'package:quranvideo/widgets/audio_trimmer.dart';
 
 class AudioScreen extends StatefulWidget {
   const AudioScreen({Key? key}) : super(key: key);
@@ -12,28 +14,40 @@ class AudioScreen extends StatefulWidget {
 }
 
 class _AudioScreenState extends State<AudioScreen> {
-  String? fileName;
+  // String? fileName;
   String? path;
 
   @override
   Widget build(BuildContext context) {
+    path = context.read<Utils>().audioPath;
     return Column(
       children: [
-        if (fileName != null) ...[
+        if (path != null) ...[
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(fileName!),
+              Flexible(
+                child: Text(
+                  path?.split('/').last ?? 'No File selected',
+                  overflow: TextOverflow.fade,
+                  maxLines: 1,
+                  softWrap: false,
+                ),
+              ),
               CloseButton(onPressed: () {
                 setState(() {
-                  fileName = null;
+                  context.read<Utils>().setAudioPath(null);
                 });
               })
             ],
           ),
-          AudioTrimmer(filePath: path!),
+          Text(
+            'You have ${context.read<Utils>().ayahs.length - 1} split(s) to mark the ending',
+            textAlign: TextAlign.center,
+          ),
+          if (path != null) AudioTrimmer(filePath: path!),
         ],
-        if (fileName == null)
+        if (path == null) ...[
           Container(
               child: ElevatedButton(
             child: Text('Pick Audio'),
@@ -43,14 +57,37 @@ class _AudioScreenState extends State<AudioScreen> {
               if (result != null) {
                 File file = File(result.files.single.path!);
                 setState(() {
-                  fileName = file.path.split('/').last;
-                  path = file.path;
+                  context.read<Utils>().setAudioPath(file.path);
                 });
               } else {
                 // User canceled the picker
               }
             },
           )),
+          Container(
+              child: ElevatedButton(
+            child: Text('Video Audio'),
+            onPressed: () async {
+              setState(() {
+                final utils = context.read<Utils>();
+                utils.setAudioPath(utils.videoPath);
+              });
+            },
+          )),
+        ]
+        // Container(
+        //     child: CheckboxListTile(
+        //   value: true,
+        //   title: Text('Use Video Audio'),
+        //   onChanged: (va) {
+        //     if (va == true) {
+        //       setState(() {
+        //         path = context.read<Utils>().videoPath;
+        //         fileName = path!.split('/').last;
+        //       });
+        //     }
+        //   },
+        // )),
       ],
     );
   }

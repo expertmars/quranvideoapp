@@ -33,12 +33,31 @@ dependencies:
   file_picker: ^4.6.1
   http: ^0.13.4
   just_audio: ^0.9.28
+  collection:
+  path_provider: ^2.0.9
+  dynamic_cached_fonts: ^1.0.0
+  flutter_image_slideshow: ^0.1.2
+  fluttertoast: ^8.0.9
+  flutter_slidable:
+  # undo: ^1.4.0
+  flutter_colorpicker: ^1.0.3
+  video_player: ^2.4.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  shared_preferences: ^2.0.15
+  gallery_saver: ^2.3.2
+  external_path: ^1.0.1
+  permission_handler: ^10.0.0
+  open_file: ^3.2.1
+  share_plus: ^4.0.10
+
+  ffmpeg_kit_flutter_full: ^4.5.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.3
+  flutter_native_splash: ^2.1.1
   flutter_test:
     sdk: flutter
 
@@ -51,7 +70,15 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
+flutter_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/icon.png"
+flutter_native_splash:
+  color: "#226001"
+  image: assets/icon.png
+  android: true
+  ios: true
 # The following section is specific to Flutter.
 flutter:
   # The following line ensures that the Material Icons font is
@@ -60,8 +87,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/fonts/Noto Sans Malayalam.ttf
+    - assets/fonts/Poppins.ttf
+    - assets/trans.jpg
+    - assets/logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

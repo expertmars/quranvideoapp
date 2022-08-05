@@ -1,17 +1,181 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:quranvideo/provider/utils.dart';
+import 'dart:io';
 
-class VideoScreen extends StatelessWidget {
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:provider/provider.dart';
+import 'package:quranvideo/models/ayah.dart';
+import 'package:quranvideo/provider/utils.dart';
+import 'package:quranvideo/widgets/color_selector.dart';
+import 'package:quranvideo/widgets/font_setting_item.dart';
+
+class VideoScreen extends StatefulWidget {
   const VideoScreen({Key? key}) : super(key: key);
 
   @override
+  State<VideoScreen> createState() => _VideoScreenState();
+}
+
+class _VideoScreenState extends State<VideoScreen> {
+  // create some values
+  // Color pickerColor = Colors.black;
+  // Color currentColor = Colors.black;
+
+// ValueChanged<Color> callback
+  void changeColor(Color color) {
+    context.read<Utils>().setColorBg(color);
+    // setState(() => pickerColor = color);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        context.read<Utils>().fetchSurahInfo();
-      },
-      child: Text('Video Screen'),
+    final opa = -context.watch<Utils>().colorBg!.opacity;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Background',
+            style: TextStyle(fontSize: 18), textAlign: TextAlign.left),
+        SizedBox(
+          height: 15,
+        ),
+        Row(
+          children: [
+            GestureDetector(
+              onTap: () async {
+                final bgColor = context.read<Utils>().colorBg;
+                final co =
+                    await showColorSelector(context, bgColor!, showAlpha: true);
+                if (co != null) {
+                  changeColor(co);
+                }
+              },
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        opacity: opa == 0 ? 1 : opa,
+                        image: AssetImage('assets/trans.jpg'),
+                      ),
+                      // border: context.read<Utils>().colorBg != null
+                      //     ? Border.all(
+                      //         color: Colors.blue,
+                      //         width: 2,
+                      //       )
+                      //     : null,
+                      color: context.watch<Utils>().colorBg!,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(width: 20),
+            GestureDetector(
+              onTap: () async {
+                FilePickerResult? result =
+                    await FilePicker.platform.pickFiles();
+
+                if (result != null) {
+                  File file = File(result.files.single.path!);
+                  setState(() {
+                    context.read<Utils>().setVideoPath(file.path);
+                  });
+                } else {
+                  // User canceled the picker
+                }
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                child: Icon(Icons.image),
+                decoration: BoxDecoration(
+                  // border: context.read<Utils>().videoPath != null
+                  //     ? Border.all(
+                  //         color: Colors.blue,
+                  //         width: 2,
+                  //       )
+                  //     : null,
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            )
+          ],
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Text('Position',
+            style: TextStyle(fontSize: 18), textAlign: TextAlign.left),
+        SizedBox(
+          height: 15,
+        ),
+        Row(
+          children: [
+            Flexible(
+              child: TextFormField(
+                controller: TextEditingController(
+                    text: context.read<Utils>().pos_x.toString()),
+                onChanged: (val) {
+                  if (int.tryParse(val) != null) {
+                    context.read<Utils>().setXAxis(int.parse(val));
+                  }
+                },
+                decoration: const InputDecoration(
+                    labelText: 'X',
+                    filled: true,
+                    fillColor: Colors.white54,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10)),
+              ),
+            ),
+            SizedBox(
+              width: 40,
+            ),
+            Flexible(
+              child: TextFormField(
+                controller: TextEditingController(
+                    text: context.read<Utils>().pos_y.toString()),
+                onChanged: (val) {
+                  if (int.tryParse(val) != null) {
+                    context.read<Utils>().setYAxis(int.parse(val));
+                  }
+                },
+                decoration: const InputDecoration(
+                    labelText: 'Y',
+                    filled: true,
+                    fillColor: Colors.white54,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10)),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Text('Font', style: TextStyle(fontSize: 18), textAlign: TextAlign.left),
+        SizedBox(
+          height: 15,
+        ),
+        FontSettingItem(type: EditingType.ayah),
+        SizedBox(height: 8),
+        FontSettingItem(type: EditingType.eng),
+        SizedBox(height: 8),
+        FontSettingItem(type: EditingType.local),
+        SizedBox(
+          height: 10,
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: Text('Long Press a font to reset to default',
+              textAlign: TextAlign.center,
+              style:
+                  TextStyle(fontSize: 12, color: Colors.black.withOpacity(.5))),
+        )
+      ],
     );
   }
 }
