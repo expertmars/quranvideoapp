@@ -1,55 +1,141 @@
-# 📽️ Quran Video Creator
+# 🎥 Quran Video Creator
 
-**Effortless Quran video generation, tailored to your style and reciter.**  
-Create beautifully synchronized Quran videos with customizable Surah, Qari, Ayah range, Arabic script styles, and translations — all in just a few clicks.
+A simple, beautiful way to create personalized Quran videos — select your reciter, verses, translation, and design, then sit back and let the app do the work.
 
-![Quran Video Creator Banner](https://your-image-link.com/banner.png) <!-- Replace with actual banner image -->
-
----
-
-## 🌟 Features
-
-✅ **Surah & Ayah Selection**  
-Choose your desired Surah and set the Ayah range — from any verse to any verse.
-
-✅ **Qari Selection**  
-Select from a library of famous Qaris (reciters) like Mishary Alafasy, Abdul Basit, and more.
-
-✅ **Arabic Script Styling**  
-Customize Arabic text with various fonts, sizes, and positioning — Madani, IndoPak, Uthmani, etc.
-
-✅ **Translation & Styling**  
-Choose from multiple translations (English, Urdu, Malayalam, etc.) and personalize their font, color, and alignment.
-
-✅ **Real-time Sync**  
-Recitation is beautifully synced with the display of verses — ensuring a powerful and immersive experience.
-
-✅ **One-click Render**  
-Once configured, click "Generate" and let the system do the magic — producing a high-quality Quran video ready to share.
+Whether you're a content creator, educator, or just want to share the beauty of the Qur’an, this tool helps you turn verses into high-quality videos effortlessly.
 
 ---
 
-## 🧠 Use Case
+## ✨ What You Can Do
 
-This project is perfect for:
+- 🔍 **Pick a Surah and Ayah Range**  
+  Choose any Surah and specify from which Ayah to which Ayah you'd like to generate a video.
 
-- Islamic content creators on YouTube, TikTok, and Instagram
-- Masjid media teams
-- Quran teaching platforms
-- Individuals wanting to share meaningful Quran reflections with style
+- 🎧 **Select a Qari (Reciter)**  
+  Choose from a range of well-known Qaris — perfect recitation synced with the text.
+
+- 📝 **Customize Arabic Script**  
+  Tailor the font, size, and style of the Arabic verse display — from classic Uthmani to modern scripts.
+
+- 🌐 **Add Translation**  
+  Display a translation in your preferred language. Choose the look, feel, and alignment that suits your video.
+
+- 🎬 **One-Click Video Generation**  
+  Once everything’s set, just click ‘Generate’ and let the app render a beautiful video where text and audio are synced smoothly.
 
 ---
 
-## 🖼️ UI Preview
+## 🧩 Ideal For
 
-![App UI Screenshot](https://your-image-link.com/ui-preview.png) <!-- Replace with actual UI screenshot -->
+- Islamic YouTubers, TikTok/Reel creators  
+- Online Quran academies  
+- Mosque media teams  
+- Anyone who wants to share impactful, visually-rich Quran clips
+
+---
+
+## 📸 Sneak Peek
+
+*(Preview images go here — UI screenshots, sample video thumbnails, etc.)*  
+*(Just upload and paste in links to screenshots or sample videos)*
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository
+### Clone the Project
 
 ```bash
-git clone https://github.com/your-username/quran-video-creator.git
+git clone https://github.com/yourusername/quran-video-creator.git
 cd quran-video-creator
+
+### Install Packages
+
+```bash
+npm install
+# or
+yarn
+```
+
+### Launch the App
+
+```bash
+npm run dev
+```
+
+The app should now be running at `http://localhost:3000`.
+
+---
+
+## 🛠 Tech Highlights
+
+* **Frontend**: React + Tailwind CSS (or your frontend of choice)
+* **Backend**: Node.js + Express
+* **Video Engine**: FFmpeg handles video/audio merging and rendering
+* **APIs/Content**: Quran.com APIs, Tanzil.net, and local resources
+* **Font Support**: Madani, IndoPak, Amiri, and more
+* **Output Format**: Full HD, with presets for Instagram, YouTube, TikTok
+
+---
+
+## 📁 Project Overview
+
+```bash
+quran-video-creator/
+│
+├── public/               # Fonts, assets
+├── src/
+│   ├── components/       # Reusable React components
+│   ├── pages/            # Main pages (if using Next.js)
+│   ├── api/              # API routes for surahs, qaris, translations
+│   ├── utils/            # Sync helpers, data parsing, styling logic
+│   └── renderer/         # FFmpeg video processing
+```
+
+---
+
+## 🎯 What’s Next
+
+* [x] Audio-text sync for Qari recitations
+* [x] Font and layout customization
+* [x] Support for multiple languages
+* [x] Video backgrounds (image/video/gradient)
+* [ ] Social media export presets (Reels, Shorts, etc.)
+* [ ] Save & re-edit previous projects
+* [ ] Deploy as a public app (optional SaaS)
+
+---
+
+## 🤝 How to Contribute
+
+
+
+> ⚠️ **Project Discontinued**  
+> This project was discontinued **in 2022** and is no longer being maintained.  
+
+
+
+If you'd like to improve this project — you're more than welcome! You can:
+
+* Open an issue with suggestions or bugs
+* Fork and create a pull request
+* Share your ideas for new features
+
+Before contributing, please read the [CONTRIBUTING.md](CONTRIBUTING.md) (coming soon).
+
+---
+
+## 📜 License
+
+This project is open-source and licensed under the MIT License.
+Feel free to use, remix, and build upon it.
+
+---
+
+## 🙌 Creator
+
+Built with love and intention by Mubarak and Muneer (https://mubaraktech.com).
+If you'd like to collaborate or offer feedback, feel free to reach out.
+
+> *“We have certainly sent down the Qur'an, and We will surely guard it.”*
+> — Surah Al-Hijr (15:9)
