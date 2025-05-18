@@ -53,7 +53,7 @@ Whether you're a content creator, educator, or just want to share the beauty of 
 ### Clone the Project
 
 ```bash
-git clone https://github.com/yourusername/quran-video-creator.git
+git clone https://github.com/expertmars/quranvideoapp.git
 cd quran-video-creator
 
 ### Install Packages
