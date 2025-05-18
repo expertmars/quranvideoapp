@@ -4,6 +4,10 @@ A simple, beautiful way to create personalized Quran videos — select your reci
 
 Whether you're a content creator, educator, or just want to share the beauty of the Qur’an, this tool helps you turn verses into high-quality videos effortlessly.
 
+🔗Contributers:
+[@MuneerX](https://github.com/muneerx)
+[@expertmars](https://github.com/expertmars)
+
 ---
 
 ## ✨ What You Can Do
