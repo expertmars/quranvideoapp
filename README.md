@@ -40,11 +40,11 @@ Whether you're a content creator, educator, or just want to share the beauty of 
 
 ## 📸 Sneak Peek
 
-<img src="https://github.com/user-attachments/assets/501179d8-5a36-4516-be50-c8cf624793b9" width="170">
-<img src="https://github.com/user-attachments/assets/c1570d7c-31b1-497c-aa79-d60d37c37383" width="170">
-<img src="https://github.com/user-attachments/assets/4ec1b9ac-4405-48d7-81a8-1f3c22ac7aca" width="170">
-<img src="https://github.com/user-attachments/assets/95920e3b-c343-4ccc-84f3-fce205b00b95" width="170">
-<img src="https://github.com/user-attachments/assets/dc5b0a46-5403-4ce3-8ff1-c156f1602f24" width="170">
+<img src="https://github.com/user-attachments/assets/501179d8-5a36-4516-be50-c8cf624793b9" width="160">
+<img src="https://github.com/user-attachments/assets/c1570d7c-31b1-497c-aa79-d60d37c37383" width="160">
+<img src="https://github.com/user-attachments/assets/4ec1b9ac-4405-48d7-81a8-1f3c22ac7aca" width="160">
+<img src="https://github.com/user-attachments/assets/95920e3b-c343-4ccc-84f3-fce205b00b95" width="160">
+<img src="https://github.com/user-attachments/assets/dc5b0a46-5403-4ce3-8ff1-c156f1602f24" width="160">
 
 ---
 
@@ -88,7 +88,7 @@ The app should now be running at `http://localhost:3000`.
 ## 📁 Project Overview
 
 ```bash
-quran-video-creator/
+quranvideoapp/
 │
 ├── public/               # Fonts, assets
 ├── src/
@@ -113,13 +113,7 @@ quran-video-creator/
 
 ---
 
-## 🤝 How to Contribute
-
-
-
-> ⚠️ **Project Discontinued**  
-> This project was discontinued **in 2022** and is no longer being maintained.  
-
+## 🤝 How to Contribute  
 
 
 If you'd like to improve this project — you're more than welcome! You can:
