@@ -54,8 +54,8 @@ Whether you're a content creator, educator, or just want to share the beauty of 
 
 ```bash
 git clone https://github.com/expertmars/quranvideoapp.git
-cd quran-video-creator
-
+cd quranvideoapp
+```
 ### Install Packages
 
 ```bash
@@ -71,17 +71,6 @@ npm run dev
 ```
 
 The app should now be running at `http://localhost:3000`.
-
----
-
-## 🛠 Tech Highlights
-
-* **Frontend**: React + Tailwind CSS (or your frontend of choice)
-* **Backend**: Node.js + Express
-* **Video Engine**: FFmpeg handles video/audio merging and rendering
-* **APIs/Content**: Quran.com APIs, Tanzil.net, and local resources
-* **Font Support**: Madani, IndoPak, Amiri, and more
-* **Output Format**: Full HD, with presets for Instagram, YouTube, TikTok
 
 ---
 
