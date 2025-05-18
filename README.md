@@ -1,4 +1,4 @@
-# 🎥 Quran Video Creator
+# 🎥 Quran Video Maker
 
 A simple, beautiful way to create personalized Quran videos — select your reciter, verses, translation, and design, then sit back and let the app do the work.
 
